@@ -1,0 +1,10 @@
+{
+  "platforms": ["ios", "tvos", "android", "web"],
+  "ios": {
+    "modules": ["ExpoGoogleAuthenticationModule"],
+    "appDelegateSubscribers": ["ExpoGoogleAuthenticationDelegate"]
+  },
+  "android": {
+    "modules": ["com.heartbot.googleauthentication.ExpoGoogleAuthenticationModule"]
+  }
+}

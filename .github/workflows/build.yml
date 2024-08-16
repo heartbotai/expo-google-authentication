@@ -1,0 +1,40 @@
+name: Build
+run-name: >-
+  ${{ github.event.head_commit.message == ''
+    && format('Deployment #{0} by @{1}', github.run_id, github.actor)
+    || format('{0}: Deployment by @{1}', github.event.head_commit.message, github.actor) }}
+
+concurrency:
+  group: build-production
+  cancel-in-progress: false
+
+permissions:
+  contents: read # Required for checkout.
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Build
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20.15.1
+      - name: Install dependencies
+        run: npm ci
+        shell: bash
+      - name: Format Check
+        run: npm run format-check
+      - name: Lint
+        run: npm run lint
+      - name: Test
+        run: npm run test
+      - name: Build
+        run: npm run build-ci
+

@@ -1,0 +1,13 @@
+{
+  "expo": {
+    "name": "expo-google-authentication",
+    "slug": "expo-google-authentication",
+    "version": "0.1.0",
+    "description": "Expo module for native Google authentication",
+    "sdkVersion": "51.0.0",
+    "platforms": [
+      "ios",
+      "android"
+    ]
+  }
+}
