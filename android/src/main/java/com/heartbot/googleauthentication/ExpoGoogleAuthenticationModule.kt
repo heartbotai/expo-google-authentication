@@ -152,7 +152,7 @@ class ExpoGoogleAuthenticationModule : Module() {
           Log.i(TAG, "NoCredentialException, retrying.", e)
           loginBase(loginType, 1, promise)
         } else {
-          Log.i(TAG, "NoCredentialException, failing.", e)
+          Log.e(TAG, "NoCredentialException, failing.", e)
           handleLoginFailure(promise, "ERR_NO_CRED", e)
         }
       } catch (e: GetCredentialException) {
