@@ -1,6 +1,9 @@
 export type ExpoGoogleAuthenticationConfigureProps = {
   webClientId: string; // Web client ID from Google Cloud Console.
   profileImageSize?: number; // Size of the profile image in pixels to request from Google.
+  iOSClientId?: string; // iOS client ID from Google Cloud Console. Only necessary for iOS.
+  // If you don't provide this, the iOS clientID will be taken from
+  // the Info.plist file.
 
   // URL-safe, base64 encoded and non-wrapping string with a minimum of 16 characters and
   // a maximum of 500 characters: https://developer.android.com/google/play/integrity/classic#nonce

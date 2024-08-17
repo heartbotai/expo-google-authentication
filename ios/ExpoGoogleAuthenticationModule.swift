@@ -8,6 +8,9 @@ public class ExpoGoogleAuthenticationModule: Module {
   struct ConfigureOptions: Record {
     @Field
     var webClientId: String = ""
+    
+    @Field
+    var iOSClientId: String? = ""
 
     @Field
     var nonce: String? = ""
@@ -33,6 +36,11 @@ public class ExpoGoogleAuthenticationModule: Module {
   private func configure(options: ConfigureOptions) -> Void {
     if let profileImageSize = options.profileImageSize {
       self.profileImageSize = profileImageSize;
+    }
+    
+    if let iOSClientId = options.iOSClientId, !iOSClientId.isEmpty {
+      let googleConfig = GIDConfiguration(clientID: iOSClientId, serverClientID: options.webClientId)
+      GIDSignIn.sharedInstance.configuration = googleConfig
     }
   }
 

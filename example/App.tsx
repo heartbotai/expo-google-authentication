@@ -14,6 +14,8 @@ export default function App() {
     const configureProps: ExpoGoogleAuthenticationConfigureProps = {
       webClientId:
         "456042836902-s9v13pv9ehkplbclb9ntv8jnp4bpv5ll.apps.googleusercontent.com",
+      iOSClientId: 
+        "456042836902-nlevf5n56b16i9kgjtmdva6mari162cs.apps.googleusercontent.com",
     };
     ExpoGoogleAuthentication.configure(configureProps);
   } catch (error) {

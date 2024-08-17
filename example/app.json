@@ -24,6 +24,14 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      [
+        "expo-google-authentication",
+        {
+          "iosUrlScheme": "com.googleusercontent.apps.456042836902-nlevf5n56b16i9kgjtmdva6mari162cs"
+        }
+      ]
+    ]
   }
 }
