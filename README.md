@@ -1,5 +1,7 @@
 # Expo Google Authentication
 
+[![Build](https://github.com/heartbotai/expo-google-authentication/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/heartbotai/expo-google-authentication/actions/workflows/build.yml)
+
 Expo module that allows you to use native iOS and Android libraries to provide sign-in with Google functionality in an Expo application.
 
 **When should I use this?**
@@ -45,24 +47,23 @@ Official Google Documentation: https://developers.google.com/identity/sign-in/io
 ## Usage
 
 ```typescript
-import * as ExpoGoogleAuthentication from 'expo-google-authentication';
+import * as ExpoGoogleAuthentication from "expo-google-authentication";
 ```
 
-``` typescript
+```typescript
 function Component() {
-
   const configureProps: ExpoGoogleAuthenticationConfigureProps = {
     webClientId: "<Your Web Client ID>",
   };
   ExpoGoogleAuthentication.configure(configureProps);
 
-  const login = async() => {
+  const login = async () => {
     const loginResponse = await ExpoGoogleAuthentication.login();
-  }
+  };
 
-  const logout = async() => {
+  const logout = async () => {
     await ExpoGoogleAuthentication.logout();
-  }
+  };
 
   return (
     <View>
@@ -86,25 +87,25 @@ function Component() {
 
 ```typescript
 export type ExpoGoogleAuthenticationConfigureProps = {
-  webClientId: string;        // Web client ID from Google Cloud Console.
-  profileImageSize?: number;  // Size of the profile image in pixels to request from Google.
+  webClientId: string; // Web client ID from Google Cloud Console.
+  profileImageSize?: number; // Size of the profile image in pixels to request from Google.
 };
 
 export type ExpoGoogleAuthenticationLoginResponse = {
-  displayName?: string;         // Full name of the user.
-  familyName?: string;          // Last name of the user.
-  givenName?: string;           // First name of the user.
-  email?: string;               // Email. Only available on iOS.
-  id?: string;                  // UserID. Email on Android, ID on iOS.
-  idToken: string;              // ID token from Google to verify on your server.
-  phoneNumber?: string;         // Phone number. May not be available.
-  profilePictureUri?: string;   // URL for the user's profile picture.
+  displayName?: string; // Full name of the user.
+  familyName?: string; // Last name of the user.
+  givenName?: string; // First name of the user.
+  email?: string; // Email. Only available on iOS.
+  id?: string; // UserID. Email on Android, ID on iOS.
+  idToken: string; // ID token from Google to verify on your server.
+  phoneNumber?: string; // Phone number. May not be available.
+  profilePictureUri?: string; // URL for the user's profile picture.
 };
 ```
 
 #### Constants
 
-``` typescript
+```typescript
 export const ExpoGoogleAuthenticationStatusCodes = {
   LOGIN_CANCELED: "ERR_CANCELED",
   NO_CREDENTIALS: "ERR_NO_CRED",
@@ -115,7 +116,6 @@ export const ExpoGoogleAuthenticationStatusCodes = {
   LOGOUT_FAILED: "ERR_LOGOUT_FAILED",
   UNSUPPORTED_PLATFORM: "ERR_UNSUPPORTED_PLATFORM",
 };
-
 ```
 
 #### Error handling
@@ -134,7 +134,7 @@ try {
       // User closed the login modal.
       break;
     default:
-      // Unknown error.
+    // Unknown error.
   }
 }
 ```
@@ -303,17 +303,14 @@ In VSCode debug with this launch configuration:
 
 ```json
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "type": "node",
-            "request": "attach",
-            "name": "Attach",
-            "port": 9229
-        }
-    ]
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "attach",
+      "name": "Attach",
+      "port": 9229
+    }
+  ]
 }
 ```
