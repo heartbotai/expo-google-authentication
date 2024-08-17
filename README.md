@@ -10,7 +10,7 @@ Use this library if you want your Expo React Native application to be able to us
 
 ### Add the package to your npm dependencies
 
-```
+```shell
 npm install expo-google-authentication
 ```
 
@@ -24,7 +24,7 @@ Documentation on creating your Android and Web ClientID can be found under the "
 
 Run `npx pod-install` after installing the npm package. For iOS you'll also need to edit your 'Info.plist`file and add the following. Make sure there is only one instance of`CFBundleURLTypes`.
 
-```
+```xml
 <key>GIDClientID</key>
 <string>Your iOS clientID from the Google Developer Console</string>
 <key>CFBundleURLTypes</key>
@@ -44,11 +44,11 @@ Official Google Documentation: https://developers.google.com/identity/sign-in/io
 
 ## Usage
 
-```
+```typescript
 import * as ExpoGoogleAuthentication from 'expo-google-authentication';
 ```
 
-```
+``` typescript
 function Component() {
 
   const configureProps: ExpoGoogleAuthenticationConfigureProps = {
@@ -84,7 +84,7 @@ function Component() {
 
 #### Types
 
-```
+```typescript
 export type ExpoGoogleAuthenticationConfigureProps = {
   webClientId: string;        // Web client ID from Google Cloud Console.
   profileImageSize?: number;  // Size of the profile image in pixels to request from Google.
@@ -104,7 +104,7 @@ export type ExpoGoogleAuthenticationLoginResponse = {
 
 #### Constants
 
-```
+``` typescript
 export const ExpoGoogleAuthenticationStatusCodes = {
   LOGIN_CANCELED: "ERR_CANCELED",
   NO_CREDENTIALS: "ERR_NO_CRED",
@@ -125,7 +125,7 @@ export const ExpoGoogleAuthenticationStatusCodes = {
 - `code`: This is a key of the `ExpoGoogleAuthenticationStatusCodes` dictionary.
 - `message`: This is a human readable message that describes the error.
 
-```
+```typescript
 try {
   const loginDataResponse = await ExpoGogoleAuthentication.login();
 } catch (err) {
@@ -151,7 +151,7 @@ For iOS you must add dependencies and configuration parameters to your iOS proje
 
 These instructions are for if you could like to contribute to this package. Clone the repository to your local. Enter the directory where you cloned the repository. Run:
 
-```
+```shell
 npm ci
 cd example
 npm ci
@@ -161,7 +161,7 @@ npm ci
 
 Before pushing code you should run the following commands:
 
-```
+```shell
 npm run lint
 npm run format
 npm run test
@@ -173,14 +173,14 @@ Check-in any changes made.
 
 #### Setup
 
-```
+```shell
 cd example
 npx expo prebuild -p ios --clean
 ```
 
 In `example/ios/ExpoGoogleAuthenticationExample/Info.plist` remove the following lines:
 
-```
+```xml
 <key>CFBundleURLTypes</key>
 <array>
   <dict>
@@ -194,7 +194,7 @@ In `example/ios/ExpoGoogleAuthenticationExample/Info.plist` remove the following
 
 Then include the following:
 
-```
+```xml
 <key>GIDClientID</key>
 <string>Your iOS clientID from the Google Developer Console</string>
 <key>CFBundleURLTypes</key>
@@ -212,7 +212,7 @@ Then include the following:
 
 #### Start app
 
-```
+```shell
 cd example
 npx expo run:ios
 ```
@@ -223,14 +223,14 @@ The above will start the example application in an iOS simulator. If you just in
 
 In one terminal run the commands:
 
-```
+```shell
 cd example
 npx expo start
 ```
 
 In another terminal run the commands:
 
-```
+```shell
 cd example
 npx expo prebuild
 open -a "/Applications/Xcode.app/" ./ios
@@ -240,7 +240,7 @@ open -a "/Applications/Xcode.app/" ./ios
 
 To run the example project use the following commands. Make sure that you have `$JAVA_HOME` set to your Android Studio JDK installation. As of writing, on a Mac the location can be found at `export JAVA_HOME=/Applications/Android\ Studio.app/Contents/jbr/Contents/Home`.
 
-```
+```shell
 cd example
 npx expo run:android
 ```
@@ -249,14 +249,14 @@ npx expo run:android
 
 To test on a device your android OAuth 2.0 ClientIDs must have a SHA-1 certificate fingerprint that matches the build. To find your SHA-1 certificate fingerprint:
 
-```
+```shell
 cd example/android
 ./gradlew signingreport
 ```
 
 Look for the SHA1 fingerprint with `Variant: debug` and `Config: debug`. Fill out this info in the Google Cloud API & Services Credentials page. Run the project with the following commands:
 
-```
+```shell
 cd example
 npx expo run:android --variant=debug
 ```
@@ -265,14 +265,14 @@ npx expo run:android --variant=debug
 
 In one terminal run the command:
 
-```
+```shell
 cd example
 npx expo start
 ```
 
 In another terminal run the command:
 
-```
+```shell
 cd example
 rm -r android
 npx expo prebuild
@@ -281,7 +281,7 @@ open -a "/Applications/Android Studio.app" ./android
 
 If you're using an Android device connected over USB then you need to run the following extra command. This needs to be run everytime you start debugging an app.
 
-```
+```shell
 adb reverse tcp:8081 tcp:8081
 ```
 
@@ -295,13 +295,13 @@ To view Android logs run: `adb logcat | grep "ReactNative\|ExpoGoogleAuthenticat
 
 In the `expo-google-authentication` directory:
 
-```
+```shell
 node --experimental-vm-modules --inspect-brk node_modules/.bin/jest
 ```
 
 In VSCode debug with this launch configuration:
 
-```
+```json
 {
     // Use IntelliSense to learn about possible attributes.
     // Hover to view descriptions of existing attributes.
