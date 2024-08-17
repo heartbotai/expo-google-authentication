@@ -24,7 +24,10 @@
     "expo-google-authentication",
     "ExpoGoogleAuthentication"
   ],
-  "repository": "https://github.com/heartbotai/expo-google-authentication",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heartbotai/expo-google-authentication.git"
+  },
   "bugs": {
     "url": "https://github.com/heartbotai/expo-google-authentication/issues"
   },
