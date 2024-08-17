@@ -139,6 +139,7 @@ Before pushing code you should run the following commands:
 ```
 npm run lint
 npm run format
+npm run test
 ```
 
 Check-in any changes made.
