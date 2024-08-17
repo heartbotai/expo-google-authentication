@@ -24,25 +24,24 @@ Documentation on creating your Android and Web ClientID can be found under the "
 
 ### Configure for iOS
 
-Run `npx pod-install` after installing the npm package. For iOS you'll also need to edit your 'Info.plist`file and add the following. Make sure there is only one instance of`CFBundleURLTypes`.
+Run `npx pod-install` after installing the npm package. For iOS you'll also need to edit your `app.json` file and add the following. Then pass your iOS clientID and the web clientID into the `ExpoGoogleAuthentication.configure()` method. See the `usage` section for more details.
 
-```xml
-<key>GIDClientID</key>
-<string>Your iOS clientID from the Google Developer Console</string>
-<key>CFBundleURLTypes</key>
-<array>
-  <dict>
-    <key>CFBundleURLSchemes</key>
-    <array>
-      <string>Your reversed iOS ClientID from the Google Developer Console</string>
-    </array>
-  </dict>
-</array>
-<key>GIDServerClientID</key>
-<string>Your Web OAuth ClientID from the Google Developer Console</string>
+```json
+{
+  "expo": {
+    "plugins": [
+      [
+        "expo-google-authentication",
+        {
+          "iosUrlScheme": "<reversed iOS clientID. Can find in Google Developer Console>"
+        }
+      ]
+    ]
+  }
+}
 ```
 
-Official Google Documentation: https://developers.google.com/identity/sign-in/ios/start-integrating
+Official Google Documentation: https://developers.google.com/identity/sign-in/ios/start-integrating.
 
 ## Usage
 
@@ -54,6 +53,7 @@ import * as ExpoGoogleAuthentication from "expo-google-authentication";
 function Component() {
   const configureProps: ExpoGoogleAuthenticationConfigureProps = {
     webClientId: "<Your Web Client ID>",
+    iOSClientId: "<Your iOS Client ID>",
   };
   ExpoGoogleAuthentication.configure(configureProps);
 
@@ -155,6 +155,7 @@ These instructions are for if you could like to contribute to this package. Clon
 npm ci
 cd example
 npm ci
+npm run build-ci plugin
 ```
 
 ## Release process
@@ -170,45 +171,6 @@ npm run test
 Check-in any changes made.
 
 ### iOS Development
-
-#### Setup
-
-```shell
-cd example
-npx expo prebuild -p ios --clean
-```
-
-In `example/ios/ExpoGoogleAuthenticationExample/Info.plist` remove the following lines:
-
-```xml
-<key>CFBundleURLTypes</key>
-<array>
-  <dict>
-    <key>CFBundleURLSchemes</key>
-    <array>
-      <string>com.heartbot.googleauthentication.example</string>
-    </array>
-  </dict>
-</array>
-```
-
-Then include the following:
-
-```xml
-<key>GIDClientID</key>
-<string>Your iOS clientID from the Google Developer Console</string>
-<key>CFBundleURLTypes</key>
-<array>
-  <dict>
-    <key>CFBundleURLSchemes</key>
-    <array>
-      <string>Your reversed iOS ClientID from the Google Developer Console</string>
-    </array>
-  </dict>
-</array>
-<key>GIDServerClientID</key>
-<string>Your Web OAuth ClientID from the Google Developer Console</string>
-```
 
 #### Start app
 
