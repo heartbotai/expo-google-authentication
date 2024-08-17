@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { Button, StyleSheet, Text, View } from "react-native";
 
-import * as ExpoGoogleAuthentication from "expo-google-authentication";
+import * as ExpoGoogleAuthentication from "@heartbot/expo-google-authentication";
 import {
   ExpoGoogleAuthenticationStatusCodes,
   ExpoGoogleAuthenticationConfigureProps,
-} from "expo-google-authentication";
+} from "@heartbot/expo-google-authentication";
 
 export default function App() {
   const [loginData, setLoginData] = useState({});

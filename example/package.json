@@ -9,6 +9,7 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@heartbot/expo-google-authentication": "file:..",
     "expo": "~51.0.26",
     "expo-google-authentication": "file:..",
     "react": "18.2.0",

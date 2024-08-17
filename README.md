@@ -13,7 +13,7 @@ Use this library if you want your Expo React Native application to be able to us
 ### Add the package to your npm dependencies
 
 ```shell
-npm install expo-google-authentication
+npm install @heartbot/expo-google-authentication
 ```
 
 ### Configure for Android
@@ -31,7 +31,7 @@ Run `npx pod-install` after installing the npm package. For iOS you'll also need
   "expo": {
     "plugins": [
       [
-        "expo-google-authentication",
+        "@heartbot/expo-google-authentication",
         {
           "iosUrlScheme": "<reversed iOS clientID. Can find in Google Developer Console>"
         }
@@ -46,7 +46,7 @@ Official Google Documentation: https://developers.google.com/identity/sign-in/io
 ## Usage
 
 ```typescript
-import * as ExpoGoogleAuthentication from "expo-google-authentication";
+import * as ExpoGoogleAuthentication from "@heartbot/expo-google-authentication";
 ```
 
 ```typescript
