@@ -48,6 +48,31 @@ Official Google Documentation: https://developers.google.com/identity/sign-in/io
 import * as ExpoGoogleAuthentication from 'expo-google-authentication';
 ```
 
+```
+function Component() {
+
+  const configureProps: ExpoGoogleAuthenticationConfigureProps = {
+    webClientId: "<Your Web Client ID>",
+  };
+  ExpoGoogleAuthentication.configure(configureProps);
+
+  const login = async() => {
+    const loginResponse = await ExpoGoogleAuthentication.login();
+  }
+
+  const logout = async() => {
+    await ExpoGoogleAuthentication.logout();
+  }
+
+  return (
+    <View>
+      <Button onPress={login} title="Login with Google" />
+      <Button onPress={logout} title="Logout" />
+    </View>
+  );
+}
+```
+
 ### API
 
 #### Methods
