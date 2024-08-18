@@ -24,7 +24,7 @@ Documentation on creating your Android and Web ClientID can be found under the "
 
 ### Configure for iOS
 
-Run `npx pod-install` after installing the npm package. For iOS you'll also need to edit your `app.json` file and add the following. Then pass your iOS clientID and the web clientID into the `ExpoGoogleAuthentication.configure()` method. See the `usage` section for more details.
+For iOS you'll also need to edit your `app.json` file and add the following. Then pass your iOS clientID and the web clientID into the `ExpoGoogleAuthentication.configure()` method. See the `usage` section for more details.
 
 ```json
 {
