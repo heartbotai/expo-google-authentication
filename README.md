@@ -43,6 +43,15 @@ Run `npx pod-install` after installing the npm package. For iOS you'll also need
 
 Official Google Documentation: https://developers.google.com/identity/sign-in/ios/start-integrating.
 
+### Build
+
+This app includes native code outside of Expo. This means you cannot use Expo Go with this package. Instead you'll need to use development builds: https://docs.expo.dev/develop/development-builds/create-a-build/.
+
+```
+npx expo run:ios
+npx expo run:android
+```
+
 ## Usage
 
 ```typescript
