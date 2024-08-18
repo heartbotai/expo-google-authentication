@@ -145,6 +145,13 @@ class ExpoGoogleAuthenticationModule : Module() {
         )
         handleLogin(promise, result)
       } catch(e: GetCredentialCancellationException) {
+        // As of (android.x.credentials:credentials-play-services-auth:1.2.2):
+        // There is a bug in the Google Sign In SDK that causes
+        // the GetCredentialCancellationException to be thrown for errors unrelated to cancel.
+        // There is no way to distinguish between a real cancellation and a different error.
+        //
+        // In this case, switching to LoginType.WITHOUT_BUTTON may return more accurate error
+        // messages.
         Log.i(TAG, "GetCredentialCancellationException.", e)
         handleLoginFailure(promise, "ERR_CANCELED", e)
       } catch (e: NoCredentialException) {

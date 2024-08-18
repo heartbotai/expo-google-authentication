@@ -148,6 +148,19 @@ try {
 }
 ```
 
+**Important Note**
+
+As of (android.x.credentials:credentials-play-services-auth:1.2.2):
+There is a bug in the Google Sign In SDK that causes
+the GetCredentialCancellationException to be thrown for errors unrelated to cancel.
+There is no way to distinguish between a real cancellation and a different error. This is most
+likely an issue with the way you've setup your Google Developer Console OAuth 2.0 Client IDs. In this case, switching to LoginType.WITHOUT_BUTTON can return slightly more accurate error
+messages, but the error will still occur.
+
+Common issues:
+- You pass your Web ClientID to the `configure()` method. However, your Android ClientID must be have the SHA-1 fingerprint and package name setup correctly to match your build. You do not use your Android ClientID within your Expo application.
+- Run `./gradlew signingreport` within your android directory after running `npx expo run:android` to view your SHA-1 fingerprints. There are multiple fingerprints associated with different variants. Use the correct variant in your OAuth 2.0 ClientID. Use the `npx expo run:android --variant=<variant>` command to make a development build with a specific variant.
+
 #### Example
 
 This repository contains a working example showing API usage: https://github.com/heartbotai/expo-google-authentication/blob/main/example/App.tsx
