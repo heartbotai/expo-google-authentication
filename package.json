@@ -1,12 +1,19 @@
 {
   "name": "@heartbot/expo-google-authentication",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Expo module for native Google authentication",
   "main": "build/index.js",
   "types": "build/index.d.ts",
+  "files": [
+    "./build/**",
+    "./plugin/build/**",
+    "./package.json",
+    "./app.plugin.js"
+  ],
   "scripts": {
     "build": "expo-module build",
     "build-ci": "CI=true expo-module build",
+    "build-plugin-ci": "CI=true expo-module build plugin",
     "clean": "expo-module clean",
     "lint": "expo-module lint",
     "test": "expo-module test --no-watch --no-watchAll",

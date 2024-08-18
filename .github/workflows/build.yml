@@ -37,4 +37,6 @@ jobs:
         run: npm run test
       - name: Build
         run: npm run build-ci
+      - name: Build Plugin
+        run: npm run build-ci-plugin
 
