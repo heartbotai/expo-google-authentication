@@ -1,6 +1,6 @@
 {
   "name": "@heartbot/expo-google-authentication",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Expo module for native Google authentication",
   "main": "build/index.js",
   "types": "build/index.d.ts",
