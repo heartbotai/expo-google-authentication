@@ -1,6 +1,6 @@
 import GoogleSignIn
 import ExpoModulesCore
-import React.RCTUtils
+import React
 
 public class ExpoGoogleAuthenticationModule: Module {
   var profileImageSize: UInt = 120
