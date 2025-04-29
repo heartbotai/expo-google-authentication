@@ -136,7 +136,7 @@ export const ExpoGoogleAuthenticationStatusCodes = {
 
 ```typescript
 try {
-  const loginDataResponse = await ExpoGogoleAuthentication.login();
+  const loginDataResponse = await ExpoGoogleAuthentication.login();
 } catch (err) {
   switch (err.code) {
     case ExpoGoogleAuthenticationStatusCodes.LOGIN_CANCELED:
